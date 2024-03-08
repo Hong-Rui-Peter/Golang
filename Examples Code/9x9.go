@@ -1,4 +1,4 @@
-// 久久成法表
+// 九九成法表
 package main
 
 import "fmt"
