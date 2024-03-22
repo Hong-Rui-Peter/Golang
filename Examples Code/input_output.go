@@ -3,11 +3,9 @@ package main
 
 import "fmt"
 
-func fuck_golang() {
+func main() {
 	fmt.Println("fuck golang")
-}
 
-func input_output() {
 	var name string
 
 	fmt.Print("請輸入名字:") // 輸出

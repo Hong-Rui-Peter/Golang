@@ -6,8 +6,9 @@ import (
 	"strconv"
 )
 
-func even_odd_num() {
+func main() {
 	var number int
+
 	fmt.Print("請輸入一個數字:")
 	fmt.Scan(&number)
 

@@ -1,9 +1,17 @@
 // 費式數列(徒法煉鋼)
 package main
 
-func fibonacci2(n int) int {
+import "fmt"
+
+func main() {
+	var n int
+
+	fmt.Print("請輸入費式數列數字:")
+	fmt.Scanln(&n)
+
 	if n < 2 {
-		return n
+		fmt.Println(n)
+		return
 	}
 
 	a, b := 0, 1
@@ -13,5 +21,7 @@ func fibonacci2(n int) int {
 		a, b = b, next
 	}
 
-	return a
+	fmt.Println(a)
 }
+
+// 0 1 1 2 3 5 8 13
