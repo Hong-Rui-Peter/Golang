@@ -1,3 +1,4 @@
+// 併發
 package main
 
 import (
@@ -20,18 +21,18 @@ func runner(people string) {
 
 	no += 1 // 名次
 	fmt.Printf("第%d名:%s\n", no, people)
-	wg.Done()
+	wg.Done() // 跑完呼叫
 }
 
 func main() {
 	rand.Seed(time.Now().UnixNano()) // 先產生隨機值
 	peoples := []string{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"}
-	wg.Add(10)
+	wg.Add(10) // 產生10個goroutine
 
 	for _, people := range peoples {
 		go runner(people)
 	}
 
-	wg.Wait()
+	wg.Wait() // 10個goroutine跑完呼叫完在往下執行
 	fmt.Println("Game Over")
 }
