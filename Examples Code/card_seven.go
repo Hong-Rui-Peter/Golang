@@ -12,6 +12,10 @@ import (
 var wg sync.WaitGroup
 
 func main() {
+	cardSeven()
+}
+
+func cardSeven() {
 	var player int = 4                // 4位玩家
 	var startNum int = 7              // 初始牌號
 	var minNum int = 1                // 撲克牌最小號碼
@@ -28,32 +32,8 @@ func main() {
 		go gameStart(maxNum, minNum, startNum, "玩家"+strconv.Itoa(i+1), ch[i])
 	}
 
-	i := 0
-
-	for {
-		select {
-		case msg := <-ch[0]:
-			fmt.Println("=======>", msg)
-			i++
-		case msg := <-ch[1]:
-			fmt.Println("=======>", msg)
-			i++
-		case msg := <-ch[2]:
-			fmt.Println("=======>", msg)
-			i++
-		case msg := <-ch[3]:
-			fmt.Println("=======>", msg)
-			i++
-		case <-time.After(5 * time.Second): // 超時
-			fmt.Println("Timed out", i)
-		}
-
-		if i == 4 { // 4位玩家
-			break
-		}
-	}
+	gameOver(ch)
 	wg.Wait()
-
 }
 
 func gameStart(max, min, startNum int, player string, ch chan string) {
@@ -110,4 +90,31 @@ func valuePosition(targetValue int, arr ...int) int {
 		}
 	}
 	return -1
+}
+
+func gameOver(ch []chan string) {
+	i := 0
+
+	for {
+		select {
+		case msg := <-ch[0]:
+			fmt.Println("=======>", msg)
+			i++
+		case msg := <-ch[1]:
+			fmt.Println("=======>", msg)
+			i++
+		case msg := <-ch[2]:
+			fmt.Println("=======>", msg)
+			i++
+		case msg := <-ch[3]:
+			fmt.Println("=======>", msg)
+			i++
+		case <-time.After(5 * time.Second): // 超時
+			fmt.Println("Timed out", i)
+		}
+
+		if i == 4 { // 4位玩家
+			break
+		}
+	}
 }

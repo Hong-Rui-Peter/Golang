@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>"乘法表"</title>
+</head>
+
+<body>
+    <h1>乘法表</h1>
+    <table border="1">
+        {{range $i, $row := .Table}}
+        <tr>
+            {{range $j, $val := $row}}
+            <td style="padding: 12px;">{{$val}}</td>
+            {{end}}
+        </tr>
+        {{end}}
+    </table>
+</body>
+
+</html>

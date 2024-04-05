@@ -23,6 +23,8 @@ func checkUID() {
 		if regexp.MustCompile(`^[A-Za-z][1-2]\d{8}$`).MatchString(uid) { // MustCompile:檢查的規則,MatchString:被檢查的參數
 			fmt.Println(uid)
 			break
+		} else {
+			fmt.Println("錯誤,請從新輸入!!")
 		}
 	}
 }
@@ -38,6 +40,8 @@ func checkPhoneNumber() {
 		if regexp.MustCompile(`^09\d{8}`).MatchString(pn) { // MustCompile:檢查的規則,MatchString:被檢查的參數
 			fmt.Println(pn)
 			break
+		} else {
+			fmt.Println("錯誤,請從新輸入!!")
 		}
 	}
 }
@@ -53,6 +57,8 @@ func checkEmail() {
 		if regexp.MustCompile(`^\w+@\w+\.com$`).MatchString(email) { // MustCompile:檢查的規則,MatchString:被檢查的參數
 			fmt.Println(email)
 			break
+		} else {
+			fmt.Println("錯誤,請從新輸入!!")
 		}
 	}
 }
