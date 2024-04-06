@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI</title>
+</head>
+
+<body>
+    <br>
+    <div>Weight: {{ .Weight }} kg</div>
+    <div>Height: {{ .Height }} cm</div>
+    <br>
+    <div>
+        BMI: {{ .BMI }}
+        <span>
+            (
+            {{if gt .BMI 30.0 }}
+            <span>過重</span>
+            {{else if and (le .BMI 30.0) (ge .BMI 20.0)}}
+            <span>標準</span>
+            {{else if lt .BMI 20.0}}
+            <span>過輕</span>
+            {{else}}
+            <span>ERROR</span>
+            {{end}}
+            )
+        </span>
+    </div>
+</body>
+
+</html>
